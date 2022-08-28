@@ -24,6 +24,12 @@ func (p *Client) PostWithSchema(query string, response interface{}, options ...O
 	}
 
 	// use the response object from params because it contains type information
+	var resp struct {
+		Data       interface{}            `json:"data"`
+		Errors     json.RawMessage        `json:"errors"`
+		Extensions map[string]interface{} `json:"extensions"`
+	}
+	resp.Data = response
 	err = json.Unmarshal(w.Body.Bytes(), &response)
 	if err != nil {
 		return fmt.Errorf("decode: %w", err)
