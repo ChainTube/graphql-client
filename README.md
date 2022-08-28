@@ -1,4 +1,4 @@
-# ChainTube streamer
+# GraphQL client
 A simple GraphQL client for unit tests.
 
 Forked from [gqlgen client](https://github.com/99designs/gqlgen) with a fix to unmarshal to
