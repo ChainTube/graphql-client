@@ -30,7 +30,7 @@ func (p *Client) PostWithSchema(query string, response interface{}, options ...O
 		Extensions map[string]interface{} `json:"extensions"`
 	}
 	resp.Data = response
-	err = json.Unmarshal(w.Body.Bytes(), &response)
+	err = json.Unmarshal(w.Body.Bytes(), &resp)
 	if err != nil {
 		return fmt.Errorf("decode: %w", err)
 	}
